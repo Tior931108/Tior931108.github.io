@@ -1,48 +1,59 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Homepage</title>
     <link rel="stylesheet" href="css/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dongle:wght@300;400;700&family=Grandiflora+One&family=Vina+Sans&display=swap" rel="stylesheet">
+    <title>용준's Homepage</title>
 </head>
 <body>
-    <div id="wrap">
-        <main id="main">
-            <header id="haeader">
-                <h1 class="logo">PORTFOLIO</h1>
-                <nav class="nav"></nav>
-            </header>
-            <section id="contents">
-                <article class="banner"></article>
-                <article class="notice"></article>
-                <article class="gallery"></article>
-                <article class="link"></article>
-            </section>
-            <article id="slider">
-                <div class="sliderWrap">
-                    <div class="slider s1">
-                        
-                    </div>
-                    <div class="slider s2">
-                        
-                    </div>
-                    <div class="slider s3">
-                        
-                    </div>
+    <header>
+        <div class="logo"><a href="#page1">YONGJUN's</a></div>
+        <nav>
+            <ul>
+                <li><a href="#page1">INTRO</a></li>
+                <li>/</li>
+                <li><a href="#page2">ABOUT ME</a></li>
+                <li>/</li>
+                <li><a href="#page3">FAVORITE</a></li>
+                <li>/</li>
+                <li><a href="#page4">ROAD MAP</a></li>
+                <li>/</li>
+                <li><a href="#page5">CONTACT</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="page" id="page1">
+        <article id="slider">
+            <div class="sliderWrap">
+                <div class="slider s1">
+                    <img src="./images/흑백2 한지점.png" alt="겨울1">
                 </div>
-            </article>
-        </main>
-
-        <footer id="footer">
-            <div class="footer1">PORTFOLIO</div>
-            <div class="footer2">
-                <div class="footer2-1">test6</div>
-                <div class="footer2-2">test7</div>
+                <div class="slider s2">
+                    <img src="./images/겨울 흑백1.jpg" alt="겨울1">
+                </div>
+                <div class="slider s3">
+                    <img src="./images/개발화면1.jpg" alt="겨울1">
+                </div>
             </div>
-        </footer>
+        </article>
     </div>
+    <div class="page" id="page2">
+        <h1>Page 2</h1>
+    </div>
+    <div class="page" id="page3">
+        <h1>Page 3</h1>
+    </div>
+    <div class="page" id="page4">
+        <h1>Page 4</h1>
+    </div>
+    <div class="page" id="page5">
+        <h1>Page 5</h1>
+    </div>
+
     <script src="js/index.js"></script>
 </body>
 </html>

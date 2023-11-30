@@ -1,156 +1,122 @@
-* {
+body {
     margin: 0;
     padding: 0;
-}
-#wrap {
-    width: 100%;           
-}
-#main {
-    width: 100%;
-    height: calc(100vh - 120px);
-    background-color: #efefef;
-    display: flex;
-}
-#header {
-    width: 200px;
-    height: 100%;
-}
-#header h1 {
-    width: 100%;
-    height: 10%;
-    background-color: #98EECC;
-}
-#header nav {
-    width: 100%;
-    height: 90%;
-    background-color: #D0F5BE;
-}
-#contents {
-    width: 400px;
-    height: 100%;
+    overflow: hidden;
 }
 
-/* article에 마우스 클릭 시 애니메이션 추가 */
-#contents article {
+header {
+    background-color: #000; /* 검은색 배경으로 변경 */
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+.logo a{
+    font-family: 'Dongle', sans-serif;
+    font-family: 'Grandiflora One', cursive;
+    font-family: 'Vina Sans', sans-serif;
+    font-size: 3em;
+    text-decoration: none; /* 로고의 밑줄 효과 제거 */
+    color: white;
     cursor: pointer;
-    user-select: none;
-    transition: transform 0.3s ease-in-out;
 }
 
-@keyframes rotateAnimation {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-/* article이 클릭되었을 때 애니메이션 적용 */
-#contents article:active {
-    animation: rotateAnimation 1s linear infinite;
-}
-
-/* article에 마우스 호버 시 애니메이션 추가 */
-#contents article:hover {
-    transform: scale(1.0, 1.1);
-    transition: transform 0.1s ease-in-out;
-}
-
-#contents .banner {
-    width: 100%;
-    height: 15%;
-    background-color: #FBFFDC;
-    transform-origin: center bottom; /* 아래쪽을 기준으로 확대/축소 */
-}
-
-#contents .banner:hover {
-    transform: scaleY(1.2); /* 세로 방향으로만 확대 */
-    transition: transform 0.3s ease-in-out;
-}
-
-#contents .notice {
-    width: 100%;
-    height: 35%;
-    background-color:#79E0EE;
-}
-
-#contents .gallery {
-    width: 100%;
-    height: 35%;
-    background-color:#98EECC;
-}
-
-#contents .link {
-    width: 100%;
-    height: 15%;
-    background-color:#D0F5BE;
-    transform-origin: center top; /* 위쪽을 기준으로 확대/축소 */
-}
-
-#contents .link:hover {
-    transform: scaleY(1.2); /* 세로 방향으로만 확대 */
-    transition: transform 0.3s ease-in-out;
-}
-#slider {
-    width: calc(100% - 600px);
-    height: 100%;
-    background-color:#79E0EE;
-}
-#footer {
-    width: 100%;
+nav ul {
+    list-style: none;
     display: flex;
 }
-#footer .footer1 {
-    width: 20%;
-    height: 120px;
-    background-color:#98EECC;
+
+nav ul li {
+    margin-right: 20px;
 }
-#footer .footer2 {
-    width: 80%;
+
+nav a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2em;
 }
-#footer .footer2 .footer2-1 {
+
+nav a.active {
+    color: #ffdd00; /* 활성화된 메뉴의 색상 변경 */
+}
+
+.page {
+    height: calc(100vh - 70px); /* 상단 메뉴 바의 높이를 고려하여 조정 */
     width: 100%;
-    height: 60px;
-    background-color:#D0F5BE;
+    display: flex;
+    flex-direction: column; /* h1 요소를 페이지 상단에 위치시키기 위해 추가 */
+    justify-content: flex-start; /* h1 요소를 페이지 상단에 위치시키기 위해 추가 */
+    align-items: center;
+    font-size: 2em;
+    color: white; 
+    background-color: #000; 
+    padding-top: 70px; /* 메뉴 바의 높이만큼 페이지 내용을 아래로 내림 */
+    transition: background-color 0.3s; /* 배경색 변화에 부드러운 효과 적용 */
+    position: relative; /* 상대적인 위치 설정 */
 }
-#footer .footer2 .footer2-2 {
-    width: 100%;
-    height: 60px;
-    background-color:#FBFFDC;
+
+.page h1 {
+    margin-top: 20px;
+    text-align: left;
+    align-self: flex-start; /* 강제적으로 좌측 상단에 위치하도록 설정 */
+    position: absolute;
+    top: 70px; /* 상단 메뉴 바의 높이만큼 띄우기 */
+    left: 10px; /* 좌측으로 10px 여백 */
 }
+
+.page:hover {
+    cursor: zoom-in; /* 호버 시 돋보기 모양의 커서 적용 */
+    box-shadow: 0 0 20px 100px rgba(255, 255, 255, 0.8); /* 하얀색 그림자 적용 */
+}
+
+.scroll-indicator {
+    width: 0; /* 초기에는 보이지 않도록 설정 */
+    height: 5px; /* 스크롤 인디케이터의 높이 */
+    background-color: #fff; /* 스크롤 인디케이터의 색상 */
+    position: fixed;
+    top: 70px; /* 상단 메뉴 바의 높이만큼 띄우기 */
+    left: 0;
+    z-index: 999; /* 다른 요소 위에 위치하도록 설정 */
+    display: block;
+    opacity: 0; /* 초기에는 투명하게 설정 */
+    transition: width 0.3s, opacity 0.3s; /* 너비 및 투명도에 부드러운 효과 적용 */
+}
+
+body.scroll-indicator-visible .scroll-indicator {
+    width: 100%; /* 스크롤 인디케이터가 필요한 경우 전체 너비로 표시 */
+    opacity: 1; /* 투명도를 1로 설정하여 보이게 함 */
+}
+
 
 /* slider */
 .sliderWrap {
-    position: relative;
-    height: 100%;
+    display: flex;
 }
-/* .sliderWrap > div {
-    display: none;
+
+.slider {
+    flex: 0 0 100vw;
+    box-sizing: border-box;
+    text-align: center;
+    overflow: hidden;
 }
-.sliderWrap > div:first-child {
-    display: block;
-} */
-.sliderWrap .slider {
-    position: absolute;
-    left: 0;
-    top: 0;
+
+.slider img {
     width: 100%;
     height: 100%;
-    background-repeat: no-repeat;
-    background-position: center;
+    object-fit: contain; /* 이미지의 가로세로 비율을 유지하면서 전체가 나타나도록 조절 */
+}
+
+.slider span {
+    display: block;
+    width: 100%;
+    height: 100%;
     background-size: cover;
-}
-.sliderWrap .slider.s1 {
-    background-image: url(../images/겨울1.jpg);
-}
-.sliderWrap .slider.s2 {
-    background-image: url(../images/겨울2.jpg);
-}
-.sliderWrap .slider.s3 {
-    background-image: url(../images/겨울3.jpg);
-}
-.sliderWrap .slider span {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    background-color: rgba(255,255,255,0.4);
-    padding: 10px 20px;
+    background-position: center;
+    background-repeat: no-repeat;
 }
