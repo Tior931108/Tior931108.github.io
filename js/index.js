@@ -1,5 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
     let currentPage = 1;
+    // 헤더 상단에 표시될 줄 요소 선택
+    const headerLine = document.querySelector(".header-line");
 
     // 페이지 로드 시 첫 번째 페이지로 스크롤
     scrollToPage(currentPage);
@@ -21,33 +23,24 @@ document.addEventListener("DOMContentLoaded", function() {
             handleLinkClick(e, logo); 
     });
 
-    function handleScroll(event) {
-        if (event.deltaY > 0) {
+    // 스크롤 이벤트
+    function handleScroll(e) {
+        if (e.deltaY > 0) {
             // Scrolling down
             nextPage();
         } else {
             // Scrolling up
             prevPage();
         }
-
-        // 스크롤 시 메뉴 바 아래에 표시될 요소 선택
-        const scrollIndicator = document.querySelector(".scroll-indicator");
-
-        // 현재 스크롤 위치 백분율 계산
-        const scrollPercentage = (window.scrollY / (document.body.offsetHeight - window.innerHeight)) * 100;
-
-        // 스크롤 시 body에 클래스 추가 또는 제거
-        if (scrollPercentage > 0 && scrollPercentage < 100) {
-        document.body.classList.add("scroll-indicator-visible");
-        } else {
-        document.body.classList.remove("scroll-indicator-visible");
-        }
-
-        // 스크롤 인디케이터 업데이트
-        scrollIndicator.style.width = `${scrollPercentage}%`;
-
-        // 인디케이터가 보일 때만 스크롤 인디케이터 요소를 보이도록 설정
-        scrollIndicator.style.opacity = scrollPercentage > 0 && scrollPercentage < 100 ? 1 : 0;
+ 
+         // 현재 스크롤 위치 백분율 계산
+         const scrollPercentage =
+           (window.scrollY / (document.body.offsetHeight - window.innerHeight)) *
+           100;
+     
+         // 스크롤 상태에 따라 줄의 좌우 크기 조절
+         headerLine.style.width = `${100 - scrollPercentage}%`;
+         headerLine.style.left = `${scrollPercentage / 2}%`;
     }
 
     //클릭 이벤트 리스너 등록
@@ -55,6 +48,16 @@ document.addEventListener("DOMContentLoaded", function() {
         const targetPageNumber = parseInt(link.getAttribute("href").slice(-1));
         e.preventDefault(); // 기본 링크 이벤트 방지
         scrollToPage(targetPageNumber);
+
+        // 페이지 이동 시 줄의 위치 조절
+        const targetPage = document.getElementById(`page${targetPageNumber}`);
+        const scrollPercentage =
+        (targetPage.offsetTop /
+            (document.body.offsetHeight - window.innerHeight)) *
+        100;
+
+        headerLine.style.width = `${100 - scrollPercentage}%`;
+        headerLine.style.left = `${scrollPercentage / 2}%`;
     }
 
     function nextPage() {
@@ -81,22 +84,23 @@ document.addEventListener("DOMContentLoaded", function() {
 
 });
 
-    let currentIndex = 0;
-    const sliders = document.querySelectorAll('.slider');
-    const sliderWrap = document.querySelector('.sliderWrap');
+// 이미지 슬라이드
+let currentIndex = 0;
+const sliders = document.querySelectorAll('.slider');
+const sliderWrap = document.querySelector('.sliderWrap');
 
-    function showSlide(index) {
-        const newPosition = -index * 100 + '%';
-        sliderWrap.style.transform = 'translateX(' + newPosition + ')';
-    }
+function showSlide(index) {
+    const newPosition = -index * 100 + '%';
+    sliderWrap.style.transform = 'translateX(' + newPosition + ')';
+}
 
-    function nextSlide() {
-        currentIndex = (currentIndex + 1) % sliders.length;
-        showSlide(currentIndex);
-    }
-
-    setInterval(nextSlide, 4000); // 자동 슬라이드 설정, 3000은 3초마다 변경
-
-    // 초기 슬라이드 표시
+function nextSlide() {
+    currentIndex = (currentIndex + 1) % sliders.length;
     showSlide(currentIndex);
+}
+
+setInterval(nextSlide, 4000); // 자동 슬라이드 설정, 3000은 3초마다 변경
+
+// 초기 슬라이드 표시
+showSlide(currentIndex);
 
