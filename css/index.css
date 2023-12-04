@@ -11,9 +11,36 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: fixed;
+    position:fixed;
     width: 100%;
     z-index: 1000;
+}
+
+.header_nav-item {
+    position: relative; /* 상대적인 위치 설정 */
+
+    /* 클릭 영역 확대 */
+    display: inline-block;
+    height: var(--height-toolbar);
+    line-height: var(--height-toolbar);
+}
+
+/* 롤오버 효과 */
+.header_nav-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background-color: white;
+    transition: all 350ms;
+}
+
+.header_nav-item:hover::after {
+    left: 0;
+    width: 100%;
+    height: 2px;
 }
 
 /* 하얀색 스크롤 */
@@ -43,6 +70,41 @@ body .header-line {
     cursor: pointer;
 }
 
+#ID , #PW {
+    padding: 5px;
+}
+
+.login_button , .signup_button {
+    padding: 5px;
+}
+
+.login-form {
+    display: flex;
+    align-items: center;
+}
+
+.login-form input {
+    margin-right: 10px;
+    padding: 8px; /* 라운드를 주기 위해 패딩을 늘림 */
+    border-radius: 5px; /* 라운드 적용 */
+    border: 1px solid #ccc; /* 선택적으로 테두리 추가 */
+}
+
+.login-form button {
+    background-color: #fff;
+    color: #000;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px; /* 라운드 적용 */
+    cursor: pointer;
+    transition: background-color 0.3s; /* 호버 시 색깔 전환 효과 */
+}
+
+.login-form button:hover {
+    background-color: #000; /* 호버 시 배경색이 반전되도록 설정 */
+    color: #fff; /* 호버 시 글자색이 반전되도록 설정 */
+}
+
 nav ul {
     list-style: none;
     display: flex;
@@ -59,10 +121,6 @@ nav a {
     font-size: 1.2em;
 }
 
-nav a.active {
-    color: #ffdd00; /* 활성화된 메뉴의 색상 변경 */
-}
-
 .page {
     height: calc(100vh - 70px); /* 상단 메뉴 바의 높이를 고려하여 조정 */
     width: 100%;
@@ -70,7 +128,7 @@ nav a.active {
     flex-direction: column; /* h1 요소를 페이지 상단에 위치시키기 위해 추가 */
     justify-content: flex-start; /* h1 요소를 페이지 상단에 위치시키기 위해 추가 */
     align-items: center;
-    font-size: 2em;
+    font-size: 1.5em;
     color: white; 
     background-color: #000; 
     padding-top: 70px; /* 메뉴 바의 높이만큼 페이지 내용을 아래로 내림 */
@@ -89,7 +147,6 @@ nav a.active {
 
 .page:hover {
     cursor: zoom-in; /* 호버 시 돋보기 모양의 커서 적용 */
-    box-shadow: 0 0 20px 100px rgba(255, 255, 255, 0.8); /* 하얀색 그림자 적용 */
 }
 
 /* slider */
@@ -121,3 +178,333 @@ nav a.active {
     background-position: center;
     background-repeat: no-repeat;
 }
+
+.section {
+    padding: 64px 16px;
+    text-align: center;
+}
+  
+.section__tag {
+font-size: var(--font-size-tag);
+color: var(--color-sub);
+}
+
+.section__title {
+font-size: var(--font-size-title);
+font-weight: bold;
+color: var(--color-text);
+}
+
+main {
+display: grid; 
+grid-template-columns: 1fr 1fr;
+}
+
+#about {
+    background-color: var(--color-light-bg);
+}
+
+#about {
+grid-column: 1 / -1;
+}
+
+.about {
+display: inline-flex;
+gap: 1em;
+margin-top: 48px;
+}
+
+.about__card {
+    padding: 48px;
+    text-align: center;
+    color: white;
+    background-color: #31304D;
+    border-radius: 12px;
+}
+
+.about__favor {
+    padding: 48px;
+    text-align: center;
+    color: white;
+    background-color : #363d3f;
+    border-radius: 12px;
+}
+
+.about__icon {
+width: 120px;
+opacity: 0.25;
+}
+
+.about__card {
+width: 320px;
+cursor: pointer;
+transition: all 350ms;
+}
+
+.about__favor {
+    width: 320px;
+    cursor: pointer;
+    transition: all 350ms;
+}
+
+
+.about__card:hover {
+    box-shadow:5px 5px 15px 5px gray;
+}
+
+.about__favor:hover {
+    box-shadow:5px 5px 15px 5px gray;
+}
+
+
+
+.about__title {
+margin-top: 0.6em;
+font-size: var(--font-size-larger);
+font-weight: bold;
+}
+
+.about__title._1 {
+color: #FFB974;
+}
+.about__title._2 {
+color: #6BB0F3;
+}
+.about__title._3 {
+color: #FFBDCE;
+}
+
+.about__text {
+margin-top: 0.8em;
+font-size: var(--font-size-text);
+}
+
+
+.about:hover .about__card:not(:hover) {
+    transform: scale(0.9);
+}
+
+.about:hover .about__favor:not(:hover) {
+    transform: scale(0.9);
+}
+
+
+/* 흐림 필터링을 위한 덮개 */
+.about:hover .about__card:not(:hover)::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
+}
+
+.about__card:hover {
+    transform: scale(1.04);
+}
+.about__card:hover .about__icon {
+    opacity: 1;
+}
+
+
+.site {
+    margin-top: 30px;
+    border: 2px solid #000;
+    width: 100%;
+    height: 40px;
+    padding: 0;
+    background-color: #363d3f; 
+    color: white; 
+    font-weight: bolder;
+}
+
+.site a {
+    color: #fff;
+    text-decoration: none; /* 로고의 밑줄 효과 제거 */
+    cursor: pointer;
+}
+
+.site a:hover {
+    color: #000;
+}
+
+
+#curriculum {
+    background-color: var(--color-dark);
+    grid-column: 1 / -1;
+    padding-bottom: 88px;
+}
+
+#curriculum .section__title {
+    color: white;
+}
+
+.curriculum {
+    display: inline-block;
+    position: relative;
+}
+.curriculum__list {
+    display: inline-flex;
+    font-size: var(--font-size-larger);
+    font-weight: 100;
+    text-align: left;
+    color: white;
+    margin: 56px 0 56px 40px;
+}
+
+
+.curriculum__list li {
+    font-size: 1.1em;
+}
+.curriculum__list li::before,
+.curriculum__list li::marker {
+    content: '';
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+    box-sizing: border-box;
+    border-radius: 100%;
+    border: 4px solid white;
+    background-color: var(--color-dark);
+}
+
+.curriculum__list li::marker {
+    position: absolute;
+    top: 75px;
+    left: 100px;
+    opacity: 0.5;
+    transform: rotate(45deg);
+}
+
+.curriculum__list li {
+    position: relative;
+    width: 200px;
+    height: 120px;
+}
+.curriculum__list li span {
+    /* 글자 수에 관계없이 통일된 위치로 기울어지도록 */
+    display: inline-block;
+    width: 164px;
+
+    position: absolute;
+    z-index: 1;
+    top: 84px;
+    left: 14px;
+    opacity: 0.5;
+    transform: rotate(45deg);
+}
+.curriculum__list li:hover span {
+    opacity: 1;
+}
+
+.curriculum__progress {
+    position: absolute;
+    top: 75px;
+    left: 95px;
+    width: 1000px;
+    height: 8px;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.curriculum__progress::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    background-color: yellow;
+    width: 0;
+    height: 8px;
+    transition: all 1s;
+  }
+.curriculum__list li:hover::before {
+		background-color: var(--color-sub);
+	}
+.curriculum__list li:nth-child(2):hover 
+    ~ .curriculum__progress::after {
+    width: 200px;
+    background-color: lightgreen;
+  }
+.curriculum__list li:nth-child(3):hover 
+    ~ .curriculum__progress::after {
+    width: 400px;
+    background-color:lightgreen;
+  }
+.curriculum__list li:nth-child(4):hover 
+    ~ .curriculum__progress::after {
+    width: 600px;
+    background-color: lightgreen;
+  }
+.curriculum__list li:nth-child(5):hover 
+    ~ .curriculum__progress::after {
+    width: 800px;
+    background-color: lightgreen;
+  }
+.curriculum__list li:nth-child(6):hover 
+    ~ .curriculum__progress::after {
+    width: 1000px;
+    background-color: lightgreen;
+}
+
+
+.vertical-line {
+    width: 2px; 
+    height: 100%; 
+    background-color: #fff; 
+    margin: 0 auto; 
+}
+
+/* Inside your CSS file */
+.page5 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.user-info-table,
+.user-interaction-table {
+    width: 45%; /* Adjust the width as needed */
+    margin: 0 10px;
+}
+
+.user-info-table {
+    order: -1; /* Move to the left */
+}
+
+.contact-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.contact-table th, .contact-table td {
+    border: 1px solid #fff; /* White border */
+    padding: 8px;
+    text-align: left;
+}
+
+#interaction-form {
+    margin-top: 10px;
+}
+
+#interaction-form label,
+#interaction-form textarea {
+    display: block;
+    margin-bottom: 10px;
+}
+
+
+
+footer {
+    padding: 2em;
+    font-size: 100%;
+    text-align: center;
+    color: white;
+    background-color: #000;
+}
+
+

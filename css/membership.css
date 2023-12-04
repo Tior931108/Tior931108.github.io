@@ -1,0 +1,124 @@
+body {
+    background-color: black; /* 배경색을 검은색으로 변경 */
+    color: white; /* 폰트 색상을 흰색으로 변경 */
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+header{
+    margin-bottom: 20px; /* 헤더와 다음 요소 간의 간격 조절 */
+}
+
+form {
+    margin-top: 20%;
+}
+
+.container {
+    width: 700px;
+    height: 500px;
+    background-color: black; /* 배경색을 검은색으로 변경 */
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* 세로 중앙 정렬을 위해 flex-direction을 column으로 변경 */
+}
+
+[name=signupFrm] {
+    width: 350px;
+    height: 330px;
+    background-color: black; /* 배경색을 검은색으로 변경 */
+    border: 1px solid white; /* 테두리 색상을 흰색으로 변경 */
+    padding: 20px 20px 5px 20px;
+    margin-top: 20px; /* 페이지 중앙 정렬을 위해 margin-top 추가 */
+}
+
+form {
+    border-radius: 10%;
+}
+
+form:hover {
+    box-shadow: 5px 5px 5px 5px gray;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%; /* 테이블의 너비를 100%로 설정 */
+}
+
+th {
+    width: 110px;
+    text-align: left;
+    padding: 5px 0 0 5px;
+    height: 40px;
+}
+
+td {
+    position: relative;
+}
+
+input {
+    width: 90%;
+    border: none;
+    background-color: rgba(255, 255, 255, 0); /* 배경색을 투명으로 변경 */
+    border-bottom: 2px double white; /* 테두리 색상을 흰색으로 변경 */
+    color: white; /* 폰트 색상을 흰색으로 변경 */
+}
+
+input:focus {
+    outline: none;
+}
+
+input[type=submit] {
+    margin-top: 30px;
+    border: none;
+    width: 100%;
+    height: 40px;
+    padding: 0;
+    background-color: white; /* 배경색을 흰색으로 변경 */
+    color: black; /* 폰트 색상을 검은색으로 변경 */
+    font-weight: bolder;
+}
+
+input#email1,
+input#email2 {
+    width: 38.5%;
+}
+
+input#address {
+    margin-top: 13px;
+}
+
+input#submit {
+    border-radius: 10%;
+}
+
+input#submit:hover {
+    background-color: #000; /* 호버 시 배경색이 반전되도록 설정 */
+    color: #fff; /* 호버 시 글자색이 반전되도록 설정 */
+    border: 1px solid #ccc; 
+}
+
+.msg {
+    position: absolute;
+    margin: 0;
+    font-size: 10px;
+    display: none;
+}
+
+.msg-required {
+    color: red;
+}
+
+.msg-password {
+    color: rgb(127, 127, 127);
+}
+
+.login-form {
+    display: none;
+}
+
+.login__button .signup__button {
+    display: none;
+}

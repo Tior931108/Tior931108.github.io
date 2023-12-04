@@ -13,17 +13,39 @@
     <header>
         <div class="header-line"></div>
         <div class="logo"><a href="#page1">YONGJUN's</a></div>
+        <div class="login-form">
+            <h3 id="ID">ID</h3>
+            <input type="text" placeholder="아이디를 입력하세요.">
+            <h3 id="PW">PW</h3>
+            <input type="password" placeholder="비밀번호를 입력하세요.">
+            <button id="login__button" class="login__button">Login</button>
+            <button class="signup__button" onclick="redirectToSignUp();">SignUp</button>
+            <div class="user-info" style="display: none;">
+                <span id="current-username"></span>
+                <button id="logOut__button" class="logOut__button">LogOut</button>
+            </div>
+        </div>
         <nav>
             <ul>
-                <li><a href="#page1">INTRO</a></li>
+                <li class="header_nav-item">
+                    <a href="#page1">INTRO</a>
+                </li>
                 <li>/</li>
-                <li><a href="#page2">ABOUT ME</a></li>
+                <li class="header_nav-item">
+                    <a href="#page2">ABOUT ME</a>
+                </li>
                 <li>/</li>
-                <li><a href="#page3">FAVORITE</a></li>
+                <li class="header_nav-item">
+                    <a href="#page3">FAVORITE</a>
+                </li>
                 <li>/</li>
-                <li><a href="#page4">ROAD MAP</a></li>
+                <li class="header_nav-item">
+                    <a href="#page4">ROAD MAP</a>
+                </li>
                 <li>/</li>
-                <li><a href="#page5">CONTACT</a></li>
+                <li class="header_nav-item">
+                    <a href="#page5">CONTACT</a>
+                </li>
             </ul>
         </nav>
     </header>
@@ -32,29 +54,173 @@
             <div class="sliderWrap">
                 <div class="slider s1">
                     <img src="./images/흑백2 한지점.png" alt="겨울1">
+                    <span> 처음배울때 어렵고 힘들지라도 </span>
                 </div>
                 <div class="slider s2">
                     <img src="./images/건물1.jpg" alt="겨울1">
+                    <span> 목표로 향해 나아가 </span>
                 </div>
                 <div class="slider s3">
                     <img src="./images/개발화면4.jpg" alt="겨울1">
+                    <span> 정직하게 잘하는 개발자가 되겠습니다 </span>
                 </div>
             </div>
         </article>
     </div>
     <div class="page" id="page2">
-        <h1>About Me</h1>
+        <h1>About me</h1>
+        <main>
+            <section id="about" class="section">
+              <header class="section__header">
+              </header>
+              <div class="about">
+                <div class="about__card">
+                  <img class="about__icon" src="./images/공부.png" alt="">
+                  <h2 class="about__title _1">
+                    공부하기
+                  </h2>
+                  <p class="about__text">
+                    수시로 틈틈이 <br>
+                    공부하는 사람 <br>
+                    입니다.
+                  </p>
+                </div>
+                <div class="about__card">
+                  <img class="about__icon" src="./images/메모.png" alt="">
+                  <h2 class="about__title _2">
+                    기록하기
+                  </h2>
+                  <p class="about__text">
+                    모르는것이 있으면 <br>
+                    꼼꼼히 기록하여 <br>
+                    메모로 남깁니다.
+                  </p>
+                </div>
+                <div class="about__card">
+                  <img class="about__icon" src="./images/성장.png" alt="">
+                  <h2 class="about__title _3">
+                    성장하기
+                  </h2>
+                  <p class="about__text">
+                    공부기록을 바탕으로 <br>
+                    점차 성장해가는 <br>
+                    개발자가 되겠습니다.
+                  </p>
+                </div>
+              </div>
+            </section>
+          </main>
     </div>
     <div class="page" id="page3">
-        <h1>Favorite</h1>
-    </div>
+        <h1>Youtuber</h1>
+        <main>
+            <section id="about" class="section">
+              <header class="section__header">
+              </header>
+              <div class="about">
+                <div class="about__favor">
+                  <iframe width="300" height="200" src="https://www.youtube.com/embed/ESU2IkFj9VM?si=8djhK6UNHajnST1g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                  <h2 class="about__title _1">
+                    포프 
+                  </h2>
+                  <p class="about__text">
+                    unmanaged언어와 <br>
+                    managed언어의 차이를 <br>
+                    알아야한다.
+                  </p>
+                  <button class="site"><a href="https://www.youtube.com/@PopeTV" target="_blank">사이트 가기</a></button>
+                </div>
+                <div class="about__favor">
+                  <iframe width="300" height="200" src="https://www.youtube.com/embed/NQq0dOoEPUM?si=7_vWyUXgto7YQUfG" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                  <h2 class="about__title _2">
+                    나도코딩
+                  </h2>
+                  <p class="about__text">
+                    코딩유투버중에<br>
+                    쉽게 가르치시는분!<br>
+                    복습하기에 좋습니다!
+                  </p>
+                  <button class="site"><a href="https://www.youtube.com/@nadocoding" target="_blank">사이트 가기</a></button>
+                </div>
+                <div class="about__favor">
+                  <iframe width="300" height="200" src="https://www.youtube.com/embed/iLhwLlar2DQ?si=oDOpJ4drejgd-qDi" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                  <h2 class="about__title _3">
+                    널널한 개발자
+                  </h2>
+                  <p class="about__text">
+                    신입 개발자가<br>
+                    취업하기위해<br>
+                    알아야 할 기본 상식
+                  </p>
+                  <button class="site"><a href="https://www.youtube.com/@nullnull_not_eq_null" target="_blank">사이트 가기</a></button>
+                </div>
+              </div>
+            </section>
+          </main>
+        </div> 
+    <div>
     <div class="page" id="page4">
         <h1>Road Map</h1>
-    </div>
-    <div class="page" id="page5">
-        <h1>Contact</h1>
+        <section id="curriculum" class="section">
+            <div class="curriculum">
+              <ul class="curriculum__list">
+                <li>
+                    <span>
+                        JAVA<br>
+                        C/C++<br>
+                        CS지식
+                    </span>
+                </li>
+                <li>
+                    <span>
+                        ORACLE<br>
+                        SQL<br>
+                        NoSQL
+                    </span>
+                </li>
+                <li>
+                    <span>
+                        HTML<br>CSS<br>
+                        JAVASCRIPT<br>JQUERY<br>
+                        React.js
+                    </span>
+                </li>
+                <li>
+                    <span>
+                        ORM<br>
+                        Hibernate<br>
+                        JWT
+                    </span>
+                </li>
+                <li>
+                    <span>
+                        API설계 구현<br>
+                    </span>
+                </li>
+                <li>
+                    <span>
+                        AWS<br>
+                        CI/CD<br>
+                        성능<br>최적화
+                    </span>
+                </li>
+                <div class="curriculum__progress"></div>
+              </ul>
+            </div>
+        </section>
     </div>
 
+    <div class="page" id="page5">
+        <h1>Contact</h1>
+        <div class="vertical-line"></div>
+    </div>
+
+    <footer id="page6">
+        <h1 class="sr-only">Copyright</h1>
+        <p>
+          2023 Tior931108 - All rights reserved
+        </p>
+      </footer>
     <script src="js/index.js"></script>
 </body>
 </html>

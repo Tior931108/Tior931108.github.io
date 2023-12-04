@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/membership.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dongle:wght@300;400;700&family=Grandiflora+One&family=Vina+Sans&display=swap" rel="stylesheet">
+    <title>용준's Homepage</title>
+    
+</head>
+<body>
+    <header>
+        <div class="header-line"></div>
+        <div class="logo"><a href="#page1">YONGJUN's</a></div>
+        <div class="login-form">
+            <h3 id="ID">ID</h3>
+            <input type="text" placeholder="ID">
+            <h3 id="PW">PW</h3>
+            <input type="password" placeholder="PW">
+            <button class="login__button" >Login</button>
+            <button class="signup__button" >SignUp</button>
+            <div class="user-info" style="display: none;">
+                <span id="current-username"></span>
+                <button >LogOut</button>
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li class="header_nav-item">
+                    <a href="#page1">INTRO</a>
+                </li>
+                <li>/</li>
+                <li class="header_nav-item">
+                    <a href="#page2">ABOUT ME</a>
+                </li>
+                <li>/</li>
+                <li class="header_nav-item">
+                    <a href="#page3">FAVORITE</a>
+                </li>
+                <li>/</li>
+                <li class="header_nav-item">
+                    <a href="#page4">ROAD MAP</a>
+                </li>
+                <li>/</li>
+                <li class="header_nav-item">
+                    <a href="#page5">CONTACT</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <form action="" id="signupFrm" name="signupFrm">
+            <table>
+                <tr>
+                    <th><label for="id">아이디</label></th>
+                    <td>
+                        <input type="text" id="id" name="id"  required>
+                        <p class="msg msg-required">필수입력항목입니다</p>
+                    </td>
+                </tr>
+                <tr>
+                    <th><label for="password">패스워드</label></th>
+                    <td>
+                        <input type="password" id="password" name="password" required>
+                        <p class="msg msg-required">필수입력항목입니다</p>
+                        <p class="msg msg-password">영문자 대/소문자 특수문자, 숫자 포함 8 ~ 16자</p>
+                    </td>
+                </tr>
+                <tr>
+                    <th><label for="password-confirm">패스워드 확인</label></th>
+                    <td>
+                        <input type="password" id="password-confirm" name="password-confirm" required>
+                        <p class="msg msg-required">필수입력항목입니다</p>
+                        <p class="msg msg-password-confirm"></p>
+                    </td>
+                </tr>
+                <tr>
+                    <th><label for="email">이메일</label></th>
+                    <td>
+                        <input type="text" id="email1" name="email1">
+                        @
+                        <input type="text" id="email2" name="email2">
+                    </td>
+                </tr>
+                <tr>
+                    <th><label for="address">주소</label></th>
+                    <td>
+                        <input type="text" id="address" name="address">
+                        <input type="text" id="addressDetail" name="addressDetail">
+                    </td>
+                </tr>
+                <tr>
+                    <th colspan="2" >
+                        <input  type="submit" id="submit" onclick="Signup();" value="회 원 가 입">
+                    </th>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <script defer src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <script src="js/membership.js"></script>
+    <script>
+    window.onload = function(){
+        document.getElementById("address").addEventListener("click", function(){ //주소입력칸을 클릭하면
+            //카카오 지도 발생
+                new daum.Postcode({
+                oncomplete: function(data) { //선택시 입력값 세팅
+                document.getElementById("address").value = data.address; // 주소 넣기
+                document.querySelector("input[name=addressDetail]").focus(); //상세입력 포커싱
+                }
+            }).open();
+        }); 
+    }
+    </script>
+</body>
+</html>
