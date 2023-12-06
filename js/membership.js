@@ -157,10 +157,10 @@ document.querySelector('.header_nav-item a').addEventListener('click', () => {
                 address: `${addressValue} ${addressDetailValue}`
             };
             saveUserData(user);
+            alert('회원가입 성공!');
+            
+            window.location.href = './index.html';
         }
-        alert('회원가입 성공!');
-        
-        return window.location.href = 'index.html';
  }
 
 
